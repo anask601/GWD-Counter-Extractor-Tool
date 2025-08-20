@@ -1,71 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GWD Counter Extractor</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1>GWD Counter Extractor</h1>
-        <p>Extract gwd-counter elements from Google Web Designer HTML code</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GWD Counter Extractor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>GWD Counter Extractor</h1>
+      <p>Extract gwd-counter elements from Google Web Designer HTML code</p>
+    </div>
+
+    <div class="main-content">
+      <div class="input-section">
+        <label for="htmlInput">Paste your GWD HTML code here:</label>
+        <textarea id="htmlInput" placeholder="Paste your HTML code containing gwd-counter elements..."></textarea>
       </div>
 
-      <div class="main-content">
-        <div class="input-section">
-          <label for="htmlInput">Paste your GWD HTML code here:</label>
-          <textarea
-            id="htmlInput"
-            placeholder="Paste your HTML code containing gwd-counter elements..."
-          ></textarea>
+      <div class="button-group">
+        <button class="extract-btn" onclick="extractCounters()">
+          🔍 Extract Counters
+        </button>
+        <button class="copy-btn" onclick="copyToClipboard()" id="copyBtn" disabled>
+          📋 Copy Result
+        </button>
+        <button class="clear-btn" onclick="clearAll()">🗑️ Clear All</button>
+      </div>
+
+      <div class="success-message" id="successMessage">
+        ✅ Copied to clipboard successfully!
+      </div>
+
+      <div class="error-message" id="errorMessage">
+        ❌ No gwd-counter elements found in the provided HTML.
+      </div>
+
+      <div class="nan-warning" id="nanWarning">
+        ⚠️ <strong>Warning:</strong> Found counters with "NaN" values. These
+        may cause tracking issues!
+      </div>
+
+      <div class="output-section">
+        <div class="counter-info" id="counterInfo" style="display: none">
+          <div class="counter-count" id="counterCount">Found 0 counters</div>
         </div>
 
-        <div class="button-group">
-          <button class="extract-btn" onclick="extractCounters()">
-            🔍 Extract Counters
-          </button>
-          <button
-            class="copy-btn"
-            onclick="copyToClipboard()"
-            id="copyBtn"
-            disabled
-          >
-            📋 Copy Result
-          </button>
-          <button class="clear-btn" onclick="clearAll()">🗑️ Clear All</button>
-        </div>
-
-        <div class="success-message" id="successMessage">
-          ✅ Copied to clipboard successfully!
-        </div>
-
-        <div class="error-message" id="errorMessage">
-          ❌ No gwd-counter elements found in the provided HTML.
-        </div>
-
-        <div class="nan-warning" id="nanWarning">
-          ⚠️ <strong>Warning:</strong> Found counters with "NaN" values. These
-          may cause tracking issues!
-        </div>
-
-        <div class="output-section">
-          <div class="counter-info" id="counterInfo" style="display: none">
-            <div class="counter-count" id="counterCount">Found 0 counters</div>
-          </div>
-
-          <label for="outputArea">Extracted Counters:</label>
-          <div
-            id="outputArea"
-            class="counter-output"
-            style="overflow-y: auto; white-space: pre-wrap"
-          >
-            Extracted gwd-counter elements will appear here...
-          </div>
+        <label for="outputArea">Extracted Counters:</label>
+        <div id="outputArea" class="counter-output" style="overflow-y: auto;">
+          Extracted gwd-counter elements will appear here...
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
