@@ -46,18 +46,24 @@
           ❌ No gwd-counter elements found in the provided HTML.
         </div>
 
+        <div class="nan-warning" id="nanWarning">
+          ⚠️ <strong>Warning:</strong> Found counters with "NaN" values. These
+          may cause tracking issues!
+        </div>
+
         <div class="output-section">
           <div class="counter-info" id="counterInfo" style="display: none">
             <div class="counter-count" id="counterCount">Found 0 counters</div>
           </div>
 
           <label for="outputArea">Extracted Counters:</label>
-          <textarea
+          <div
             id="outputArea"
             class="counter-output"
-            readonly
-            placeholder="Extracted gwd-counter elements will appear here..."
-          ></textarea>
+            style="overflow-y: auto; white-space: pre-wrap"
+          >
+            Extracted gwd-counter elements will appear here...
+          </div>
         </div>
       </div>
     </div>

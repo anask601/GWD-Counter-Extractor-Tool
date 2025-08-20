@@ -84,13 +84,43 @@ The tool extracts counters in this clean format:
 - **Quick Reference**: Get counter lists for documentation
 - **Bulk Processing**: Handle multiple counter extractions
 
-## 🔧 Troubleshooting
 
 ### No Counters Found?
 
 - ✅ Check if your HTML contains `<gwd-counter>` elements
 - ✅ Make sure you pasted the complete HTML code
 - ✅ Verify the HTML is properly formatted
+
+
+### ✅ **Output Display** 
+- Shows **all counters normally** (no visual highlighting)
+- Clean, plain text output like before
+- Easy to read and copy
+
+### ⚠️ **Warning Only**
+- **Detects NaN** counters in the background
+- **Shows warning message** when found
+- **No visual changes** to the actual counter output
+
+### 📋 **Example:**
+
+**Input HTML with NaN:**
+```html
+<gwd-counter name="vid_start"></gwd-counter>
+<gwd-counter name="vid-length_NaN"></gwd-counter>
+<gwd-counter name="vid_end"></gwd-counter>
+```
+
+**Output (clean as before):**
+```html
+<gwd-counter name="vid_start"></gwd-counter><gwd-counter name="vid-length_NaN"></gwd-counter><gwd-counter name="vid_end"></gwd-counter>
+```
+
+**Warning Message:**
+```
+⚠️ Warning: Found counters with "NaN" values. These may cause tracking issues!
+```
+
 
 ### Copy Not Working?
 

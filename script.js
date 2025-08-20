@@ -6,10 +6,12 @@ function extractCounters() {
   const copyBtn = document.getElementById("copyBtn");
   const successMessage = document.getElementById("successMessage");
   const errorMessage = document.getElementById("errorMessage");
+  const nanWarning = document.getElementById("nanWarning");
 
   // Hide previous messages
   successMessage.style.display = "none";
   errorMessage.style.display = "none";
+  nanWarning.style.display = "none";
 
   if (!htmlInput.trim()) {
     errorMessage.textContent = "❌ Please paste some HTML code first.";
@@ -32,20 +34,34 @@ function extractCounters() {
     return;
   }
 
-  // Extract counter HTML
+  // Extract counter HTML and check for NaN
   let counterHTML = "";
+  let hasNaN = false;
+
   counters.forEach((counter, index) => {
     if (index > 0) counterHTML += "";
     counterHTML += counter.outerHTML;
+
+    // Check for NaN in counter names
+    if (counter.outerHTML.includes("NaN")) {
+      hasNaN = true;
+    }
   });
 
+  // Update output area with plain text (no highlighting)
+  outputArea.textContent = counterHTML;
+
   // Update UI
-  outputArea.value = counterHTML;
   counterCount.textContent = `Found ${counters.length} counter${
     counters.length !== 1 ? "s" : ""
   }`;
   counterInfo.style.display = "block";
   copyBtn.disabled = false;
+
+  // Show NaN warning if needed
+  if (hasNaN) {
+    nanWarning.style.display = "block";
+  }
 
   // Show success info
   successMessage.textContent = `✅ Successfully extracted ${counters.length} gwd-counter elements!`;
@@ -56,16 +72,21 @@ function copyToClipboard() {
   const outputArea = document.getElementById("outputArea");
   const successMessage = document.getElementById("successMessage");
 
-  if (!outputArea.value) {
+  if (!outputArea.textContent) {
     return;
   }
 
-  // Copy to clipboard
-  outputArea.select();
-  outputArea.setSelectionRange(0, 99999); // For mobile devices
+  // Create temporary textarea for copying
+  const tempTextarea = document.createElement("textarea");
+  tempTextarea.value = outputArea.textContent;
+  document.body.appendChild(tempTextarea);
+  tempTextarea.select();
+  tempTextarea.setSelectionRange(0, 99999);
 
   try {
     document.execCommand("copy");
+    document.body.removeChild(tempTextarea);
+
     successMessage.textContent = "✅ Copied to clipboard successfully!";
     successMessage.style.display = "block";
 
@@ -74,17 +95,20 @@ function copyToClipboard() {
       successMessage.style.display = "none";
     }, 3000);
   } catch (err) {
+    document.body.removeChild(tempTextarea);
     console.error("Copy failed:", err);
   }
 }
 
 function clearAll() {
   document.getElementById("htmlInput").value = "";
-  document.getElementById("outputArea").value = "";
+  document.getElementById("outputArea").textContent =
+    "Extracted gwd-counter elements will appear here...";
   document.getElementById("counterInfo").style.display = "none";
   document.getElementById("copyBtn").disabled = true;
   document.getElementById("successMessage").style.display = "none";
   document.getElementById("errorMessage").style.display = "none";
+  document.getElementById("nanWarning").style.display = "none";
 }
 
 // Allow keyboard shortcuts

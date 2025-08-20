@@ -150,6 +150,37 @@ button {
   word-wrap: break-word;
 }
 
+.nan-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border-left: 4px solid #ffc107;
+  display: none;
+}
+
+.highlight-nan {
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  color: white;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .counter-output:focus {
   outline: none;
   border-color: #11998e;
