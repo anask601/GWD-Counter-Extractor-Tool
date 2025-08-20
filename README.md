@@ -1,101 +1,124 @@
-GWD Counter Extractor Tool
-A simple web-based tool to extract gwd-counter elements from Google Web Designer HTML code.
-🚀 Quick Start
+# GWD Counter Extractor Tool
 
-📋 How to Use
-Step 1: Prepare Your HTML
+A simple web-based tool to extract `gwd-counter` elements from Google Web Designer HTML code.
 
-Copy the complete HTML code from your Google Web Designer project
-Make sure it contains <gwd-counter> elements
+## 🚀 Quick Start
 
-Step 2: Extract Counters
+## 📋 How to Use
 
-Paste HTML Code: Paste your GWD HTML in the input textarea
-Auto-Extract: The tool automatically extracts when you paste
-Manual Extract: Or click the "🔍 Extract Counters" button
+### Step 1: Prepare Your HTML
 
-Step 3: Copy Results
+- Copy the complete HTML code from your Google Web Designer project
+- Make sure it contains `<gwd-counter>` elements
 
-View Results: See extracted counters in the output area
-Copy to Clipboard: Click "📋 Copy Result" button
-Use Anywhere: Paste the extracted counters wherever needed
+### Step 2: Extract Counters
 
-Step 4: Clear (Optional)
+1. **Paste HTML Code**: Paste your GWD HTML in the input textarea
+2. **Auto-Extract**: The tool automatically extracts when you paste
+3. **Manual Extract**: Or click the "🔍 Extract Counters" button
 
-Click "🗑️ Clear All" to reset both input and output areas
+### Step 3: Copy Results
 
-⌨️ Keyboard Shortcuts
-ShortcutActionCtrl + EnterExtract countersCtrl + CCopy results to clipboardPasteAuto-triggers extraction
-📄 Input Format
+1. **View Results**: See extracted counters in the output area
+2. **Copy to Clipboard**: Click "📋 Copy Result" button
+3. **Use Anywhere**: Paste the extracted counters wherever needed
+
+### Step 4: Clear (Optional)
+
+- Click "🗑️ Clear All" to reset both input and output areas
+
+## ⌨️ Keyboard Shortcuts
+
+| Shortcut       | Action                    |
+| -------------- | ------------------------- |
+| `Ctrl + Enter` | Extract counters          |
+| `Ctrl + C`     | Copy results to clipboard |
+| `Paste`        | Auto-triggers extraction  |
+
+## 📄 Input Format
+
 Paste any HTML code containing GWD elements like this:
-html<gwd-google-ad id="gwd-ad">
-<gwd-pagedeck>
 
-<!-- Your ad content -->
-</gwd-pagedeck>
-<gwd-counter name="hdr-embd-lnk_1"></gwd-counter>
-<gwd-counter name="cta-embd-lnk_1"></gwd-counter>
-<gwd-counter name="vid_start"></gwd-counter>
+```html
+<gwd-google-ad id="gwd-ad">
+  <gwd-pagedeck>
+    <!-- Your ad content -->
+  </gwd-pagedeck>
+  <gwd-counter name="hdr-embd-lnk_1"></gwd-counter>
+  <gwd-counter name="cta-embd-lnk_1"></gwd-counter>
+  <gwd-counter name="vid_start"></gwd-counter>
 </gwd-google-ad>
-📤 Output Format
+```
+
+## 📤 Output Format
+
 The tool extracts counters in this clean format:
-html<gwd-counter name="hdr-embd-lnk_1"></gwd-counter><gwd-counter name="cta-embd-lnk_1"></gwd-counter><gwd-counter name="vid_start"></gwd-counter>
-✨ Features
 
-🔍 Smart Detection: Finds all gwd-counter elements automatically
-📱 Mobile Friendly: Works on phones, tablets, and desktop
-📋 One-Click Copy: Copy results to clipboard instantly
-🎯 Auto-Extract: Extracts when you paste HTML
-🧹 Easy Clear: Reset everything with one click
-📊 Counter Stats: Shows how many counters were found
-🎨 Modern UI: Beautiful, gradient-based design
+```html
+<gwd-counter name="hdr-embd-lnk_1"></gwd-counter
+><gwd-counter name="cta-embd-lnk_1"></gwd-counter
+><gwd-counter name="vid_start"></gwd-counter>
+```
 
-🛠️ Technical Details
+## ✨ Features
 
-No Dependencies: Pure HTML, CSS, JavaScript
-Client-Side Only: No data sent to servers
-Cross-Browser: Works in all modern browsers
-Lightweight: Fast loading and processing
+- **🔍 Smart Detection**: Finds all `gwd-counter` elements automatically
+- **📱 Mobile Friendly**: Works on phones, tablets, and desktop
+- **📋 One-Click Copy**: Copy results to clipboard instantly
+- **🎯 Auto-Extract**: Extracts when you paste HTML
+- **🧹 Easy Clear**: Reset everything with one click
+- **📊 Counter Stats**: Shows how many counters were found
+- **🎨 Modern UI**: Beautiful, gradient-based design
 
-🎯 Use Cases
+## 🛠️ Technical Details
 
-GWD Projects: Extract tracking counters from ads
-Code Cleanup: Isolate counter elements from complex HTML
-Quick Reference: Get counter lists for documentation
-Bulk Processing: Handle multiple counter extractions
+- **No Dependencies**: Pure HTML, CSS, JavaScript
+- **Client-Side Only**: No data sent to servers
+- **Cross-Browser**: Works in all modern browsers
+- **Lightweight**: Fast loading and processing
 
-🔧 Troubleshooting
-No Counters Found?
+## 🎯 Use Cases
 
-✅ Check if your HTML contains <gwd-counter> elements
-✅ Make sure you pasted the complete HTML code
-✅ Verify the HTML is properly formatted
+- **GWD Projects**: Extract tracking counters from ads
+- **Code Cleanup**: Isolate counter elements from complex HTML
+- **Quick Reference**: Get counter lists for documentation
+- **Bulk Processing**: Handle multiple counter extractions
 
-Copy Not Working?
+## 🔧 Troubleshooting
 
-✅ Try selecting the text manually and using Ctrl+C
-✅ Check if your browser allows clipboard access
-✅ Refresh the page and try again
+### No Counters Found?
 
-Mobile Issues?
+- ✅ Check if your HTML contains `<gwd-counter>` elements
+- ✅ Make sure you pasted the complete HTML code
+- ✅ Verify the HTML is properly formatted
 
-✅ The tool is fully responsive
-✅ Use landscape mode for better experience
-✅ Tap and hold to select text on mobile
+### Copy Not Working?
 
-💡 Tips
+- ✅ Try selecting the text manually and using Ctrl+C
+- ✅ Check if your browser allows clipboard access
+- ✅ Refresh the page and try again
 
-Paste Complete HTML: Include the full <gwd-google-ad> structure
-Check Results: Always verify the counter count matches your expectations
-Save Output: Copy results immediately after extraction
-Multiple Uses: Keep the tool bookmarked for repeated use
+### Mobile Issues?
 
-🎨 Browser Support
+- ✅ The tool is fully responsive
+- ✅ Use landscape mode for better experience
+- ✅ Tap and hold to select text on mobile
 
-✅ Chrome (Recommended)
-✅ Firefox
-✅ Safari
-✅ Edge
-✅ Mobile browsers
+## 💡 Tips
 
-Made for Google Web Designer developers 🚀
+1. **Paste Complete HTML**: Include the full `<gwd-google-ad>` structure
+2. **Check Results**: Always verify the counter count matches your expectations
+3. **Save Output**: Copy results immediately after extraction
+4. **Multiple Uses**: Keep the tool bookmarked for repeated use
+
+## 🎨 Browser Support
+
+- ✅ Chrome (Recommended)
+- ✅ Firefox
+- ✅ Safari
+- ✅ Edge
+- ✅ Mobile browsers
+
+---
+
+**Made for Google Web Designer developers** 🚀
