@@ -29,7 +29,8 @@ function extractCounters() {
   if (counters.length === 0) {
     errorMessage.style.display = "block";
     counterInfo.style.display = "none";
-    outputArea.value = "";
+    outputArea.textContent =
+      "Extracted gwd-counter elements will appear here...";
     copyBtn.disabled = true;
     return;
   }
@@ -72,7 +73,12 @@ function copyToClipboard() {
   const outputArea = document.getElementById("outputArea");
   const successMessage = document.getElementById("successMessage");
 
-  if (!outputArea.textContent) {
+  if (
+    !outputArea.textContent ||
+    outputArea.textContent.includes(
+      "Extracted gwd-counter elements will appear here"
+    )
+  ) {
     return;
   }
 
@@ -111,6 +117,16 @@ function clearAll() {
   document.getElementById("nanWarning").style.display = "none";
 }
 
+function openModal() {
+  document.getElementById("modalOverlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("show");
+  document.body.style.overflow = "auto";
+}
+
 // Allow keyboard shortcuts
 document.addEventListener("keydown", function (e) {
   if (e.ctrlKey && e.key === "Enter") {
@@ -119,9 +135,16 @@ document.addEventListener("keydown", function (e) {
   if (
     e.ctrlKey &&
     e.key === "c" &&
-    document.getElementById("outputArea").value
+    document.getElementById("outputArea").textContent &&
+    !document
+      .getElementById("outputArea")
+      .textContent.includes("Extracted gwd-counter elements will appear here")
   ) {
     copyToClipboard();
+  }
+  // Close modal with Escape key
+  if (e.key === "Escape") {
+    closeModal();
   }
 });
 

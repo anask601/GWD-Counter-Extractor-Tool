@@ -1,63 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GWD Counter Extractor</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GWD Counter Extractor</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>GWD Counter Extractor</h1>
-      <p>Extract gwd-counter elements from Google Web Designer HTML code</p>
-    </div>
-
-    <div class="main-content">
-      <div class="input-section">
-        <label for="htmlInput">Paste your GWD HTML code here:</label>
-        <textarea id="htmlInput" placeholder="Paste your HTML code containing gwd-counter elements..."></textarea>
-      </div>
-
-      <div class="button-group">
-        <button class="extract-btn" onclick="extractCounters()">
-          🔍 Extract Counters
+  <body>
+    <div class="container">
+      <div class="header">
+        <button class="help-button" onclick="openModal()" title="How to use">
+          ❓
         </button>
-        <button class="copy-btn" onclick="copyToClipboard()" id="copyBtn" disabled>
-          📋 Copy Result
-        </button>
-        <button class="clear-btn" onclick="clearAll()">🗑️ Clear All</button>
+        <h1>GWD Counter Extractor</h1>
+        <p>Extract gwd-counter elements from Google Web Designer HTML code</p>
       </div>
 
-      <div class="success-message" id="successMessage">
-        ✅ Copied to clipboard successfully!
-      </div>
-
-      <div class="error-message" id="errorMessage">
-        ❌ No gwd-counter elements found in the provided HTML.
-      </div>
-
-      <div class="nan-warning" id="nanWarning">
-        ⚠️ <strong>Warning:</strong> Found counters with "NaN" values. These
-        may cause tracking issues!
-      </div>
-
-      <div class="output-section">
-        <div class="counter-info" id="counterInfo" style="display: none">
-          <div class="counter-count" id="counterCount">Found 0 counters</div>
+      <div class="main-content">
+        <div class="input-section">
+          <label for="htmlInput">Paste your GWD HTML code here:</label>
+          <textarea
+            id="htmlInput"
+            placeholder="Paste your HTML code containing gwd-counter elements..."
+          ></textarea>
         </div>
 
-        <label for="outputArea">Extracted Counters:</label>
-        <div id="outputArea" class="counter-output" style="overflow-y: auto;">
-          Extracted gwd-counter elements will appear here...
+        <div class="button-group">
+          <button class="extract-btn" onclick="extractCounters()">
+            🔍 Extract Counters
+          </button>
+          <button
+            class="copy-btn"
+            onclick="copyToClipboard()"
+            id="copyBtn"
+            disabled
+          >
+            📋 Copy Result
+          </button>
+          <button class="clear-btn" onclick="clearAll()">🗑️ Clear All</button>
+        </div>
+
+        <div class="success-message" id="successMessage">
+          ✅ Copied to clipboard successfully!
+        </div>
+
+        <div class="error-message" id="errorMessage">
+          ❌ No gwd-counter elements found in the provided HTML.
+        </div>
+
+        <div class="nan-warning" id="nanWarning">
+          ⚠️ <strong>Warning:</strong> Found counters with "NaN" values. These
+          may cause tracking issues!
+        </div>
+
+        <div class="output-section">
+          <div class="counter-info" id="counterInfo" style="display: none">
+            <div class="counter-count" id="counterCount">Found 0 counters</div>
+          </div>
+
+          <label for="outputArea">Extracted Counters:</label>
+          <div id="outputArea" class="counter-output" style="overflow-y: auto">
+            Extracted gwd-counter elements will appear here...
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
 
+    <!-- Help Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2>🔍 How to Use GWD Counter Extractor</h2>
+          <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-content">
+          <div class="step">
+            <h3>
+              <span class="step-number">1</span>
+              Get Your HTML Code
+            </h3>
+            <p>Go To your Local Preview link or Deploy Preview</p>
+            <p>Open Inspect tool in your repected browser</p>
+            <p>
+              Now inpect the element ".content__header__logo" on top left side
+            </p>
+            <p>
+              You will see the HTML code of your Google Web Designer project.
+            </p>
+            <p>
+              So check main parent element of your project, it should be either
+              body tag or gwd-google-ad tag.
+            </p>
+
+            <p>
+              Open your Google Web Designer project and copy the HTML code that
+              contains gwd-counter elements. You can find these in your
+              published HTML files or exported code.
+            </p>
+            <div class="code-example">
+              &lt;gwd-counter id="counter1" type="timer"
+              duration="30"&gt;&lt;/gwd-counter&gt;
+            </div>
+            <div>Or</div>
+            <div class="code-example">
+              &lt;body id="counter1" type="timer" duration="30"&gt;&lt;/body&gt;
+            </div>
+
+            <div>
+              <video src="assests/gwd-extractor-video.mp4"></video>
+            </div>
+          </div>
+
+          <div class="step">
+            <h3>
+              <span class="step-number">2</span>
+              Paste Your Code
+            </h3>
+            <p>
+              Paste your HTML code into the text area above. The tool will
+              automatically start extracting when you paste (auto-extract
+              feature).
+            </p>
+            <p>
+              <strong>Tip:</strong> You can paste large HTML files - the tool
+              will scan through all the code to find gwd-counter elements.
+            </p>
+          </div>
+
+          <div class="step">
+            <h3>
+              <span class="step-number">3</span>
+              Extract Counters
+            </h3>
+            <p>
+              Click the <strong>"🔍 Extract Counters"</strong> button or use the
+              keyboard shortcut
+              <span class="keyboard-shortcut">Ctrl + Enter</span> to process
+              your code.
+            </p>
+            <p>The tool will:</p>
+            <ul style="margin: 10px 0 0 20px; color: #555">
+              <li>Find all gwd-counter elements in your HTML</li>
+              <li>Display the count of found counters</li>
+              <li>Show the extracted counter code in the output area</li>
+              <li>Check for potential NaN (Not a Number) issues</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h3>
+              <span class="step-number">4</span>
+              Copy Results
+            </h3>
+            <p>
+              Once extraction is complete, use the
+              <strong>"📋 Copy Result"</strong> button to copy the extracted
+              counter elements to your clipboard. You can then paste them
+              wherever needed.
+            </p>
+            <p>
+              <strong>Keyboard shortcut:</strong>
+              <span class="keyboard-shortcut">Ctrl + C</span> (when output area
+              is active)
+            </p>
+          </div>
+
+          <div class="tips">
+            <h4>💡 Pro Tips</h4>
+            <ul>
+              <li>
+                <strong>Auto-paste extraction:</strong> The tool automatically
+                extracts when you paste code
+              </li>
+              <li>
+                <strong>NaN Detection:</strong> Yellow warnings appear if
+                counters have "NaN" values that might cause issues
+              </li>
+              <li>
+                <strong>Batch Processing:</strong> You can paste HTML with
+                multiple gwd-counter elements at once
+              </li>
+              <li>
+                <strong>Clean Output:</strong> Only the counter elements are
+                extracted, removing unnecessary surrounding code
+              </li>
+              <li>
+                <strong>Mobile Friendly:</strong> Works on both desktop and
+                mobile devices
+              </li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h3>
+              <span class="step-number">5</span>
+              Troubleshooting
+            </h3>
+            <p>
+              <strong>No counters found?</strong> Make sure your HTML contains
+              valid <code>&lt;gwd-counter&gt;</code> elements.
+            </p>
+            <p>
+              <strong>NaN warnings?</strong> Check your counter configurations
+              in Google Web Designer - some values might be undefined.
+            </p>
+            <p>
+              <strong>Can't copy?</strong> Make sure the extraction was
+              successful first, then try the copy button again.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
