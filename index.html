@@ -85,35 +85,74 @@
               <span class="step-number">1</span>
               Get Your HTML Code
             </h3>
-            <p>Go To your Local Preview link or Deploy Preview</p>
-            <p>Open Inspect tool in your repected browser</p>
-            <p>
-              Now inpect the element ".content__header__logo" on top left side
-            </p>
-            <p>
-              You will see the HTML code of your Google Web Designer project.
-            </p>
-            <p>
-              So check main parent element of your project, it should be either
-              body tag or gwd-google-ad tag.
-            </p>
+            <div class="step-content">
+              <div class="instruction-group">
+                <p class="main-instruction">
+                  🌐 Navigate to your <strong>Local Preview</strong> or
+                  <strong>Deploy Preview</strong> link
+                </p>
+                <p class="sub-instruction">
+                  Open your Google Web Designer project preview in any browser
+                </p>
+              </div>
 
-            <p>
-              Open your Google Web Designer project and copy the HTML code that
-              contains gwd-counter elements. You can find these in your
-              published HTML files or exported code.
-            </p>
-            <div class="code-example">
-              &lt;gwd-counter id="counter1" type="timer"
-              duration="30"&gt;&lt;/gwd-counter&gt;
-            </div>
-            <div>Or</div>
-            <div class="code-example">
-              &lt;body id="counter1" type="timer" duration="30"&gt;&lt;/body&gt;
-            </div>
+              <div class="instruction-group">
+                <p class="main-instruction">
+                  🔍 Open <strong>Developer Tools</strong>
+                </p>
+                <p class="sub-instruction">
+                  Right-click anywhere → "Inspect" or press
+                  <span class="keyboard-shortcut">F12</span>
+                </p>
+              </div>
 
-            <div>
-              <video src="assests/gwd-extractor-video.mp4"></video>
+              <div class="instruction-group">
+                <p class="main-instruction">
+                  🎯 Inspect the <code>.content__header__logo</code> element
+                </p>
+                <p class="sub-instruction">
+                  Look for this element on the top-left side of your page
+                </p>
+              </div>
+
+              <div class="instruction-group">
+                <p class="main-instruction">📋 Find the main parent element</p>
+                <p class="sub-instruction">
+                  Look for either <code>&lt;body&gt;</code> or
+                  <code>&lt;gwd-google-ad&gt;</code> tags
+                </p>
+              </div>
+
+              <div class="code-examples">
+                <p class="example-label">Expected counter formats:</p>
+                <div class="code-example">
+                  <span class="code-comment">// Standard GWD Counter</span
+                  ><br />
+                  &lt;gwd-counter id="counter1" type="timer"
+                  duration="30"&gt;&lt;/gwd-counter&gt;
+                </div>
+                <div class="example-divider">OR</div>
+                <div class="code-example">
+                  <span class="code-comment"
+                    >// Body tag with counter attributes</span
+                  ><br />
+                  &lt;body id="counter1" type="timer"
+                  duration="30"&gt;&lt;/body&gt;
+                </div>
+              </div>
+
+              <div class="video-container">
+                <video
+                  controls
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3EDemo Video%3C/text%3E%3C/svg%3E"
+                >
+                  <source src="gwd-extractor-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">
+                  📹 Watch how to inspect and extract GWD counter elements
+                </p>
+              </div>
             </div>
           </div>
 
@@ -122,15 +161,27 @@
               <span class="step-number">2</span>
               Paste Your Code
             </h3>
-            <p>
-              Paste your HTML code into the text area above. The tool will
-              automatically start extracting when you paste (auto-extract
-              feature).
-            </p>
-            <p>
-              <strong>Tip:</strong> You can paste large HTML files - the tool
-              will scan through all the code to find gwd-counter elements.
-            </p>
+            <div class="step-content">
+              <div class="instruction-group">
+                <p class="main-instruction">
+                  📝 Paste HTML into the textarea above
+                </p>
+                <p class="sub-instruction">
+                  The tool features <strong>auto-extract</strong> - it will
+                  automatically process your code when you paste
+                </p>
+              </div>
+
+              <div class="feature-highlight">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">
+                  <strong>Smart Processing:</strong> Paste entire HTML files -
+                  our tool intelligently scans through all code to find
+                  gwd-counter elements, no matter how large or complex your file
+                  is.
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="step">
@@ -138,19 +189,39 @@
               <span class="step-number">3</span>
               Extract Counters
             </h3>
-            <p>
-              Click the <strong>"🔍 Extract Counters"</strong> button or use the
-              keyboard shortcut
-              <span class="keyboard-shortcut">Ctrl + Enter</span> to process
-              your code.
-            </p>
-            <p>The tool will:</p>
-            <ul style="margin: 10px 0 0 20px; color: #555">
-              <li>Find all gwd-counter elements in your HTML</li>
-              <li>Display the count of found counters</li>
-              <li>Show the extracted counter code in the output area</li>
-              <li>Check for potential NaN (Not a Number) issues</li>
-            </ul>
+            <div class="step-content">
+              <div class="instruction-group">
+                <p class="main-instruction">🚀 Start extraction process</p>
+                <p class="sub-instruction">
+                  Click <strong>"🔍 Extract Counters"</strong> or use
+                  <span class="keyboard-shortcut">Ctrl + Enter</span>
+                </p>
+              </div>
+
+              <div class="process-info">
+                <h4 class="process-title">
+                  🔧 What happens during extraction:
+                </h4>
+                <div class="process-list">
+                  <div class="process-item">
+                    <div class="process-icon">🔍</div>
+                    <span>Scans your HTML for all gwd-counter elements</span>
+                  </div>
+                  <div class="process-item">
+                    <div class="process-icon">📊</div>
+                    <span>Counts and displays total found counters</span>
+                  </div>
+                  <div class="process-item">
+                    <div class="process-icon">📋</div>
+                    <span>Extracts clean counter code to output area</span>
+                  </div>
+                  <div class="process-item">
+                    <div class="process-icon">⚠️</div>
+                    <span>Detects potential NaN (Not a Number) issues</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="step">
@@ -158,43 +229,75 @@
               <span class="step-number">4</span>
               Copy Results
             </h3>
-            <p>
-              Once extraction is complete, use the
-              <strong>"📋 Copy Result"</strong> button to copy the extracted
-              counter elements to your clipboard. You can then paste them
-              wherever needed.
-            </p>
-            <p>
-              <strong>Keyboard shortcut:</strong>
-              <span class="keyboard-shortcut">Ctrl + C</span> (when output area
-              is active)
-            </p>
+            <div class="step-content">
+              <div class="instruction-group">
+                <p class="main-instruction">
+                  📋 Copy extracted counter elements
+                </p>
+                <p class="sub-instruction">
+                  Use <strong>"📋 Copy Result"</strong> button to copy all
+                  extracted elements to clipboard
+                </p>
+              </div>
+
+              <div class="shortcut-info">
+                <div class="shortcut-item">
+                  <kbd class="keyboard-shortcut">Ctrl + C</kbd>
+                  <span>Quick copy when output area is focused</span>
+                </div>
+              </div>
+
+              <div class="feature-highlight">
+                <div class="feature-icon">✨</div>
+                <div class="feature-text">
+                  <strong>Ready to Use:</strong> Copied elements are clean and
+                  formatted - paste them directly into your project or
+                  documentation.
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="tips">
-            <h4>💡 Pro Tips</h4>
-            <ul>
-              <li>
-                <strong>Auto-paste extraction:</strong> The tool automatically
-                extracts when you paste code
-              </li>
-              <li>
-                <strong>NaN Detection:</strong> Yellow warnings appear if
-                counters have "NaN" values that might cause issues
-              </li>
-              <li>
-                <strong>Batch Processing:</strong> You can paste HTML with
-                multiple gwd-counter elements at once
-              </li>
-              <li>
-                <strong>Clean Output:</strong> Only the counter elements are
-                extracted, removing unnecessary surrounding code
-              </li>
-              <li>
-                <strong>Mobile Friendly:</strong> Works on both desktop and
-                mobile devices
-              </li>
-            </ul>
+            <h4>💡 Advanced Features & Tips</h4>
+            <div class="tips-grid">
+              <div class="tip-item">
+                <div class="tip-icon">⚡</div>
+                <div class="tip-content">
+                  <strong>Auto-paste extraction:</strong> The tool automatically
+                  processes code the moment you paste it
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">🚨</div>
+                <div class="tip-content">
+                  <strong>NaN Detection:</strong> Yellow warning alerts appear
+                  for counters with "NaN" values that could cause tracking
+                  failures
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">📦</div>
+                <div class="tip-content">
+                  <strong>Batch Processing:</strong> Handle multiple gwd-counter
+                  elements simultaneously from large HTML files
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">🧹</div>
+                <div class="tip-content">
+                  <strong>Clean Output:</strong> Extracts only essential counter
+                  elements, removing all unnecessary surrounding code
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-icon">📱</div>
+                <div class="tip-content">
+                  <strong>Mobile Optimized:</strong> Fully responsive design
+                  works seamlessly on desktop, tablet, and mobile devices
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="step">
@@ -202,18 +305,57 @@
               <span class="step-number">5</span>
               Troubleshooting
             </h3>
-            <p>
-              <strong>No counters found?</strong> Make sure your HTML contains
-              valid <code>&lt;gwd-counter&gt;</code> elements.
-            </p>
-            <p>
-              <strong>NaN warnings?</strong> Check your counter configurations
-              in Google Web Designer - some values might be undefined.
-            </p>
-            <p>
-              <strong>Can't copy?</strong> Make sure the extraction was
-              successful first, then try the copy button again.
-            </p>
+            <div class="step-content">
+              <div class="troubleshoot-section">
+                <div class="problem-item">
+                  <div class="problem-icon">❌</div>
+                  <div class="problem-content">
+                    <strong>No counters found?</strong>
+                    <p class="solution">
+                      Ensure your HTML contains valid
+                      <code>&lt;gwd-counter&gt;</code> elements. Check that
+                      you've pasted the complete HTML structure, not just
+                      fragments.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="problem-icon">⚠️</div>
+                  <div class="problem-content">
+                    <strong>NaN warnings appearing?</strong>
+                    <p class="solution">
+                      Review your counter configurations in Google Web Designer.
+                      Some duration or increment values may be undefined or
+                      incorrectly set.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="problem-icon">📋</div>
+                  <div class="problem-content">
+                    <strong>Can't copy results?</strong>
+                    <p class="solution">
+                      Verify extraction was successful first (green success
+                      message should appear). If copy still fails, manually
+                      select and copy from the output area.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="problem-item">
+                  <div class="problem-icon">🔧</div>
+                  <div class="problem-content">
+                    <strong>Tool not responding?</strong>
+                    <p class="solution">
+                      Try refreshing the page and paste smaller HTML sections.
+                      Very large files (>1MB) may take a moment to process.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
